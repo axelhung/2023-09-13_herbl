@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8" />  <style>.btn01 {background-color: #00ff00;} input {font-family:'Courier New', Courier, monospace;}</style><script>
+    function btn01_onClick() { 
+      var curr_step = 1;
+      var tmp_res=''; arr_li = document.getElementsByTagName('input') ; for (i =1 ; i<= arr_li.length-2 ; i++){ arr_li[i].value=''; }
+      try {
+        var tmp_res = document.getElementById('input_0').value ;
+        tmp_res = tmp_res.toUpperCase();
+        arr_li[ ++curr_step ].value += tmp_res; /* step 02 */
+
+        function upperToNumeric(match, offset, string) {
+          return ((  match.charCodeAt(0) - ('A').charCodeAt(0) + 1 )+'').padStart(2,0) ;
+        }
+        var tmp_res = tmp_res.replace(/[A-Z]/g, upperToNumeric);
+        arr_li[ ++curr_step ].value += tmp_res ; /* step 03 */
+
+        const myRe0 = /(^5)([0-9])([0-9]*)/; const myArray0 = myRe0.exec( tmp_res );
+        tmp_res = (myArray0 == null) ? tmp_res : myArray0[2]+myArray0[2]+myArray0[3] ;
+        arr_li[ ++curr_step ].value += tmp_res ; /* step 04 */
+
+        const myRe1 = /([0-9]*?)([0-9])(5$)/; const myArray1 = myRe1.exec( tmp_res );
+        tmp_res = (myArray1 == null) ? tmp_res : myArray1[1]+myArray1[2]+myArray1[2] ;
+        arr_li[ ++curr_step ].value += tmp_res ; /* step 05 */
+
+        tmp_res = tmp_res.replace('5','') ;
+        arr_li[ ++curr_step ].value += tmp_res ; /* step 06 */
+
+        const myRe2 = /(^0)([0-9])([0-9]*)/; const arr_match_2 = myRe2.exec( tmp_res );  // console.log( tmp_match );
+        tmp_res = (arr_match_2 == null) ? tmp_res : arr_match_2[2]+arr_match_2[2]+arr_match_2[3] ;
+        arr_li[ ++curr_step ].value += tmp_res ; /* step 07 */
+
+      } catch (err) {
+        console.error(err) ;
+      } 
+    }</script>
+</head><body>
+
+<div id="wrapper_herbl0" style="border:10px solid #ff0000 ;">
+  <form id="frm1">
+    
+    <ol start="0" -->
+      <li><input id="input_0" value="Ab12345"/>
+      </li>
+      <li><input />
+        verify pattern against invalid input regexp([A-Za-z][A-Za-z][0-9]+) <br /> ( what about the possibility of a trailing 'A' in ID# )<br />too lazy to do it programmaically today , next time sin la
+      </li>
+      <li><input />
+        conversion uppercase : 
+      </li>
+      <li><input />
+        swap A to 01 , B to 02 , ... Z to 26 : 
+      </li>
+      <li><input />
+        IF the leading digit is "5" , THEN replace it with the next digit ( ie at pos # 2 ) : : ( PLS DEFINE '55' ) 
+      </li>
+      <li><input />
+        IF the ending digit is "5" , THEN replace it with the prev digit ( ie at pos # 2nd last ) : ( PLS DEFINE '55' ) 
+      </li>
+      <li><input />( presuming leading and trailing '5' replaced , ) any remaining '5' are eliminated -- shortening
+      </li>
+      <li><input />
+        IF the leading digit is "0" , THEN replace it with the next digit ( ie at pos # 2 ) : : ( PLS DEFINE '00' ) 
+      </li>
+      <li><input />
+        PLS DEFINE SUBSEQUENT RULES
+      </li>
+    </ol>
+    <input type="button" value="go" id="btn_1" class="btn01" onClick="btn01_onClick()" />
+  </form>
+  <a target="_blank" href="./old_ver-2023-09-13_000.htm">prev build</a>
+
+
+
+
+
+</div>
+
+</body></html>

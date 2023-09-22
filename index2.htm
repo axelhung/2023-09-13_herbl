@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8" />  <style>.btn01 {background-color: #00ff00;} input {font-family:'Courier New', Courier, monospace;}</style><script src="./index2.js">
+</script>
+</head><body>
+
+<div id="wrapper_herbl0" style="border:10px solid #ff0000 ;">
+  <form id="frm1">
+    
+    <ol start="0" -->
+      <li><input id="input_0" value="Ab12345"/>
+      </li>
+      <li><input />
+        verify pattern against invalid input regexp([A-Za-z][A-Za-z][0-9]+) <br /> ( what about the possibility of a trailing 'A' in ID# )<br />too lazy to do it programmaically today , next time sin la
+      </li>
+      <li><input />
+        conversion uppercase : 
+      </li>
+      <li><input />
+        swap A to 01 , B to 02 , ... Z to 26 : 
+      </li>
+      <li><input />
+        IF the leading digit is "5" , THEN replace it with the next digit ( ie at pos # 2 ) : : ( PLS DEFINE '55' ) 
+      </li>
+      <li><input />
+        IF the ending digit is "5" , THEN replace it with the prev digit ( ie at pos # 2nd last ) : ( PLS DEFINE '55' ) 
+      </li>
+      <li><input />( presuming leading and trailing '5' replaced , ) any remaining '5' are eliminated -- shortening
+      </li>
+      <li><input />
+        IF the leading digit is "0" , THEN replace it with the next digit ( ie at pos # 2 ) : : ( PLS DEFINE '00' ) 
+      </li>
+      <li><input />
+        PLS DEFINE SUBSEQUENT RULES
+      </li>
+    </ol>
+    <input type="button" value="go" id="btn_1" class="btn01" onClick="btn01_onClick()" />
+  </form>
+  <a target="_blank" href="./old_ver-2023-09-13_000.htm">prev build</a>
+
+
+
+
+
+</div>
+
+</body></html>
